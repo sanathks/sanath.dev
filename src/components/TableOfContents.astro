@@ -1,0 +1,151 @@
+---
+// This component will be populated via client-side JavaScript
+---
+
+<aside id="toc-container" class="toc-container hidden xl:block">
+  <nav class="toc-nav">
+    <h2 class="text-sm font-semibold mb-4 text-foreground/80">On This Page</h2>
+    <ul id="toc-list" class="toc-list space-y-2 text-sm">
+      <!-- TOC will be populated by JavaScript -->
+    </ul>
+  </nav>
+</aside>
+
+<style>
+  .toc-container {
+    position: fixed;
+    top: 6rem;
+    right: max(0px, calc((100vw - 75rem) / 2));
+    width: 15rem;
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+    padding-right: 1rem;
+  }
+
+  .toc-list {
+    border-left: 2px solid var(--color-border);
+    padding-left: 1rem;
+  }
+
+  .toc-list a {
+    display: block;
+    color: var(--color-foreground);
+    opacity: 0.6;
+    text-decoration: none;
+    transition: opacity 0.2s, color 0.2s;
+    line-height: 1.5;
+  }
+
+  .toc-list a:hover {
+    opacity: 1;
+    color: var(--color-accent);
+  }
+
+  .toc-list a.active {
+    opacity: 1;
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  .toc-list li {
+    list-style: none;
+  }
+
+  .toc-list li.toc-h3 {
+    padding-left: 1rem;
+  }
+
+  .toc-list li.toc-h4 {
+    padding-left: 2rem;
+  }
+
+  /* Scrollbar styling */
+  .toc-container::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .toc-container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .toc-container::-webkit-scrollbar-thumb {
+    background: var(--color-muted);
+    border-radius: 2px;
+  }
+</style>
+
+<script>
+  function initTableOfContents() {
+    const article = document.getElementById('article');
+    const tocList = document.getElementById('toc-list');
+
+    if (!article || !tocList) return;
+
+    // Get all h2, h3, h4 headings
+    const headings = article.querySelectorAll('h2, h3, h4');
+
+    if (headings.length === 0) {
+      // Hide TOC if no headings
+      const tocContainer = document.getElementById('toc-container');
+      if (tocContainer) tocContainer.style.display = 'none';
+      return;
+    }
+
+    // Build TOC
+    headings.forEach((heading) => {
+      const li = document.createElement('li');
+      li.className = `toc-${heading.tagName.toLowerCase()}`;
+
+      const a = document.createElement('a');
+      a.href = `#${heading.id}`;
+      a.textContent = heading.textContent?.replace('#', '').trim() || '';
+
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
+
+    // Highlight active section on scroll
+    const observerOptions = {
+      rootMargin: '-100px 0px -66%',
+      threshold: 1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const id = entry.target.getAttribute('id');
+        const tocLink = tocList.querySelector(`a[href="#${id}"]`);
+
+        if (entry.isIntersecting && tocLink) {
+          // Remove active class from all links
+          tocList.querySelectorAll('a').forEach(link => link.classList.remove('active'));
+          // Add active class to current link
+          tocLink.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all headings
+    headings.forEach((heading) => {
+      observer.observe(heading);
+    });
+
+    // Smooth scroll to section on click
+    tocList.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = e.target as HTMLAnchorElement;
+      if (target.tagName === 'A') {
+        const id = target.getAttribute('href')?.slice(1);
+        const element = id ? document.getElementById(id) : null;
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  }
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', initTableOfContents);
+
+  // Re-initialize after Astro page transitions
+  document.addEventListener('astro:page-load', initTableOfContents);
+</script>

@@ -3,36 +3,13 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-Hi, I'm **Sanath Samarasinghe**, a software engineer with ten years of experience building scalable systems and products.
+Hi, I'm **Sanath Samarasinghe**, a software engineer specializing in building scalable backend systems and products.
 
-I have been doing software engineering for the last ten years. My specialization is in Backend technologies such as Node.js with TypeScript, GraphQL, PHP, NoSQL, and AWS. But my abilities are not limited to the backend. I also have good experience in technologies such as React, Vue, and React Native.
+Over the past decade, I've helped companies grow their platforms to support millions of users, working primarily with Node.js, TypeScript, GraphQL, and AWS. I also work across the stack with React, Vue, and React Native when needed.
 
-## My Journey
+## What I Write About
 
-Throughout my career, I have been helping companies grow their products to support millions of users. I'm a fast learner and I like to accept any challenges coming my way. That drive is what propels me forward in my career. I believe that is my true strength.
-
-## Technical Skills
-
-**Backend:**
-- Node.js & TypeScript
-- GraphQL
-- PHP (Laravel, Symfony, Zend)
-- NoSQL databases
-- AWS
-
-**Frontend:**
-- React.js
-- Vue.js
-- React Native
-
-**Languages:**
-- JavaScript
-- TypeScript
-- PHP
-
-## What You'll Find Here
-
-This site is a collection of my writings on software engineering, backend architecture, and anything else I find worth sharing. I write to document my learnings, explore ideas, and hopefully help others along the way.
+This site is a collection of my writings on software engineering, backend architecture, and technical topics I find worth exploring. I write to document what I learn and share insights that might help others.
 
 ## Let's Connect
 

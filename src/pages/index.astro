@@ -24,8 +24,8 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
   <Header />
   <main id="main-content" data-layout="index">
     <section id="hero" class="pt-8 pb-6">
-      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Hi, I'm Sanath Samarasinghe
+      <h1 class="mb-4 inline-block text-4xl font-bold sm:text-5xl">
+        Hi, I'm Sanath
       </h1>
       <a
         target="_blank"
@@ -42,16 +42,23 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
         <span class="sr-only">RSS Feed</span>
       </a>
 
-      <p>
-        I'm a software engineer specializing in building scalable backend systems and AI-powered products and features.
-        Over the past decade, I've helped companies grow their platforms to support millions of users, working primarily
-        with TypeScript, Python, Rust, and AWS. I also work across the stack Frontend and Mobile development when needed.
-      </p>
-      <p class="mt-2">
-        Currently, I'm focused on generative AI and building agentic systems and LLM based system, tools.
-        This site is a collection of my writings on software engineering, backend architecture, generative AI,
-        and development of agentic systems. I write what I learn and share insights that might help others.
-      </p>
+      <div class="flex flex-col sm:flex-row gap-6 mt-2 sm:items-end">
+        <img
+          src="/assets/profile.png"
+          alt="Profile photo of Sanath Samarasinghe"
+          class="w-48 h-48 object-contain shrink-0"
+        />
+        <div>
+          <p>
+            I'm a software engineer specializing in scalable backend systems and AI-powered products.
+            I've helped companies grow platforms to millions of users, working with TypeScript, Python, Rust, and AWS.
+          </p>
+          <p class="mt-2">
+            Currently focused on generative AI and agentic systems. This site shares my writings on software engineering,
+            backend architecture, and AI development.
+          </p>
+        </div>
+      </div>
       {
         // only display if at least one social link is enabled
         SOCIALS.length > 0 && (

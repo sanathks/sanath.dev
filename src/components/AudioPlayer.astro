@@ -282,8 +282,8 @@ const { slug } = Astro.props;
     const article = document.getElementById('article');
     if (!article || sentences.length === 0) return;
 
-    const skipSelectors = 'pre, code, table, .table-container, script, style, svg, .toc';
-    const blocks = article.querySelectorAll('p, li, h1, h2, h3, h4, h5, h6');
+    const skipSelectors = 'pre, code, table, .table-container, script, style, svg, .toc, details, summary';
+    const blocks = article.querySelectorAll('p, li');
     mappedElements = [];
 
     // Normalize text for fuzzy matching
@@ -296,17 +296,25 @@ const { slug } = Astro.props;
       if (!blockText || blockText.length < 5) continue;
       if (sentenceIdx >= sentences.length) break;
 
-      // Check if this block contains the current sentence
-      const sentText = norm(sentences[sentenceIdx].text);
-      const sentStart = sentText.slice(0, 25);
+      // Try to find a matching sentence within a lookahead window
+      // (skips heading sentences or other non-matching audio segments)
+      let matchIdx = -1;
+      const lookahead = Math.min(sentenceIdx + 8, sentences.length);
+      for (let si = sentenceIdx; si < lookahead; si++) {
+        const sentStart = norm(sentences[si].text).slice(0, 25);
+        if (blockText.includes(sentStart) || sentStart.includes(blockText.slice(0, 25))) {
+          matchIdx = si;
+          break;
+        }
+      }
 
-      if (blockText.includes(sentStart) || sentStart.includes(blockText.slice(0, 25))) {
-        // This block maps to this sentence - mark it
-        block.dataset.sentenceIndex = sentenceIdx;
+      if (matchIdx >= 0) {
+        block.dataset.sentenceIndex = matchIdx;
         block.classList.add('tts-sentence');
-        mappedElements.push({ el: block, index: sentenceIdx });
+        mappedElements.push({ el: block, index: matchIdx });
 
-        // Skip forward through sentences that are contained in this same block
+        // Advance past all sentences contained in this block
+        sentenceIdx = matchIdx;
         while (sentenceIdx < sentences.length &&
                blockText.includes(norm(sentences[sentenceIdx].text).slice(0, 25))) {
           sentenceIdx++;

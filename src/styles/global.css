@@ -68,3 +68,18 @@ html[data-theme="dark"] {
 :target {
   scroll-margin-block: 1rem;
 }
+
+/* TTS Read Along - sentence highlight */
+.tts-sentence {
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+.tts-sentence:hover {
+  background-color: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+.tts-sentence-active {
+  background-color: color-mix(in srgb, var(--accent) 15%, transparent);
+  border-left: 3px solid var(--accent);
+  padding-left: 0.75rem;
+}

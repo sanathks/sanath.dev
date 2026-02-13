@@ -22,18 +22,83 @@ But most RAG tutorials skip the hard parts. Here's what actually matters.
 
 ## The Three Layers
 
-<figure class="my-8">
-  <img 
-    src="/diagrams/rag-layers-light.svg" 
-    alt="Production RAG Architecture showing three layers: Document Parsing with Docling, Hybrid Search with OpenSearch, and Orchestration with LangChain"
-    class="w-full block dark:hidden"
-  />
-  <img 
-    src="/diagrams/rag-layers-dark.svg" 
-    alt="Production RAG Architecture showing three layers: Document Parsing with Docling, Hybrid Search with OpenSearch, and Orchestration with LangChain"
-    class="w-full hidden dark:block"
-  />
-</figure>
+```d2 animate
+direction: down
+
+documents: {
+  label: Raw Documents
+  shape: page
+  style.multiple: true
+}
+
+layer1: {
+  label: "Layer 1: Document Parsing"
+  style.stroke-dash: 3
+  
+  docling: {
+    label: Docling
+    shape: hexagon
+  }
+  
+  chunks: {
+    label: Structured Chunks
+    shape: document
+    style.multiple: true
+  }
+  
+  docling -> chunks: preserves structure
+}
+
+layer2: {
+  label: "Layer 2: Hybrid Search"
+  style.stroke-dash: 3
+  
+  opensearch: {
+    label: OpenSearch
+    shape: cylinder
+  }
+  
+  search: {
+    label: "Vector + BM25"
+    shape: parallelogram
+  }
+  
+  results: {
+    label: Ranked Results
+    shape: document
+  }
+  
+  opensearch -> search
+  search -> results: hybrid scoring
+}
+
+layer3: {
+  label: "Layer 3: Orchestration"
+  style.stroke-dash: 3
+  
+  langchain: {
+    label: LangChain
+    shape: hexagon
+  }
+  
+  llm: {
+    label: LLM
+    shape: oval
+  }
+  
+  langchain -> llm: "rewrite -> retrieve -> generate"
+}
+
+response: {
+  label: Response + Sources
+  shape: document
+}
+
+documents -> layer1.docling
+layer1.chunks -> layer2.opensearch
+layer2.results -> layer3.langchain
+layer3.llm -> response
+```
 
 Every production RAG system needs:
 

@@ -3,7 +3,6 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
-import remarkD2 from "./src/utils/remark-d2.mjs";
 import {
   transformerNotationDiff,
   transformerNotationHighlight,
@@ -21,7 +20,7 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    remarkPlugins: [remarkD2, remarkToc, [remarkCollapse, { test: "Table of contents" }]],
+    remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes
       themes: { light: "min-light", dark: "night-owl" },

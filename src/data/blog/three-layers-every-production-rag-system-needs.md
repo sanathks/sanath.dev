@@ -94,10 +94,28 @@ response: {
   shape: document
 }
 
-documents -> layer1.docling
-layer1.chunks -> layer2.opensearch
-layer2.results -> layer3.langchain
-layer3.llm -> response
+# Animation steps - each step adds more connections
+steps: {
+  1: {
+    documents
+    layer1
+  }
+  2: {
+    documents -> layer1.docling
+  }
+  3: {
+    layer1.chunks -> layer2.opensearch
+    layer2
+  }
+  4: {
+    layer2.results -> layer3.langchain
+    layer3
+  }
+  5: {
+    layer3.llm -> response
+    response
+  }
+}
 ```
 
 Every production RAG system needs:

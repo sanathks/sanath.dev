@@ -22,6 +22,19 @@ But most RAG tutorials skip the hard parts. Here's what actually matters.
 
 ## The Three Layers
 
+<figure class="my-8">
+  <img 
+    src="/diagrams/rag-layers-light.svg" 
+    alt="Production RAG Architecture showing three layers: Document Parsing with Docling, Hybrid Search with OpenSearch, and Orchestration with LangChain"
+    class="w-full block dark:hidden"
+  />
+  <img 
+    src="/diagrams/rag-layers-dark.svg" 
+    alt="Production RAG Architecture showing three layers: Document Parsing with Docling, Hybrid Search with OpenSearch, and Orchestration with LangChain"
+    class="w-full hidden dark:block"
+  />
+</figure>
+
 Every production RAG system needs:
 
 1. **Document parsing** that doesn't destroy structure

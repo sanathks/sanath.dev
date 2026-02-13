@@ -1,0 +1,46 @@
+---
+interface Props {
+  lightSrc: string;
+  darkSrc: string;
+  alt: string;
+  class?: string;
+}
+
+const { lightSrc, darkSrc, alt, class: className = '' } = Astro.props;
+---
+
+<div class:list={["theme-image", className]}>
+  <img src={lightSrc} alt={alt} class="light-only" />
+  <img src={darkSrc} alt={alt} class="dark-only" />
+</div>
+
+<style>
+  .theme-image {
+    width: 100%;
+  }
+  
+  .theme-image img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Light mode: show light, hide dark */
+  :global(html[data-theme="light"]) .light-only,
+  :global(html:not([data-theme="dark"])) .light-only {
+    display: block;
+  }
+  
+  :global(html[data-theme="light"]) .dark-only,
+  :global(html:not([data-theme="dark"])) .dark-only {
+    display: none;
+  }
+  
+  /* Dark mode: show dark, hide light */
+  :global(html[data-theme="dark"]) .light-only {
+    display: none;
+  }
+  
+  :global(html[data-theme="dark"]) .dark-only {
+    display: block;
+  }
+</style>

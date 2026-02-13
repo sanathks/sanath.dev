@@ -28,6 +28,9 @@ text = re.sub(r'^[-*_]{3,}\s*$', '', text, flags=re.MULTILINE)
 text = re.sub(r'^\s*[-*+]\s+', '', text, flags=re.MULTILINE)
 text = re.sub(r'^\s*\d+\.\s+', '', text, flags=re.MULTILINE)
 text = text.replace('\u2014', '-').replace('\u2013', '-')
+# Fix acronym pronunciation - TTS spells these out otherwise
+text = text.replace('RAG', 'rag')
+text = text.replace('LLM', 'L L M')
 text = re.sub(r'\n{3,}', '\n\n', text)
 print(text.strip())
 "

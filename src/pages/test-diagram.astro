@@ -1,0 +1,73 @@
+---
+import SequenceDiagram from "../components/diagrams/SequenceDiagram.astro";
+---
+
+<html>
+  <head>
+    <title>Diagram Test</title>
+    <style>
+      :root {
+        --background: #fdfdfd;
+        --foreground: #282728;
+        --accent: #006cac;
+      }
+      
+      [data-theme="dark"] {
+        --background: #0a0a0a;
+        --foreground: #eaedf3;
+        --accent: #7cfc00;
+      }
+      
+      body {
+        font-family: system-ui, sans-serif;
+        background: var(--background);
+        color: var(--foreground);
+        padding: 2rem;
+        margin: 0;
+      }
+      
+      .toggle {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="toggle" onclick="document.documentElement.toggleAttribute('data-theme') || document.documentElement.setAttribute('data-theme', 'dark')">
+      Toggle Theme
+    </button>
+    
+    <h1>RAG Pipeline - Sequence Diagram</h1>
+    
+    <SequenceDiagram
+      title="Production RAG Pipeline"
+      actors={["User", "Docling", "OpenSearch", "LangChain", "LLM"]}
+      messages={[
+        { from: 0, to: 1, label: "Raw documents" },
+        { from: 1, to: 1, label: "Parse & chunk" },
+        { from: 1, to: 2, label: "Indexed chunks", highlight: "STORED" },
+        { from: 0, to: 3, label: "User query" },
+        { from: 3, to: 2, label: "Hybrid search" },
+        { from: 2, to: 3, label: "Ranked results" },
+        { from: 3, to: 4, label: "Context + Query" },
+        { from: 4, to: 3, label: "Generated response" },
+        { from: 3, to: 0, label: "Answer + Sources", highlight: "CITED" },
+      ]}
+    />
+    
+    <script>
+      // Fix toggle button
+      document.querySelector('.toggle')?.addEventListener('click', () => {
+        const html = document.documentElement;
+        if (html.getAttribute('data-theme') === 'dark') {
+          html.removeAttribute('data-theme');
+        } else {
+          html.setAttribute('data-theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,297 @@
+---
+/**
+ * OpenAI-style Sequence Diagram Component
+ * 
+ * Usage:
+ * <SequenceDiagram
+ *   title="RAG Pipeline Flow"
+ *   actors={["Documents", "Docling", "OpenSearch", "LangChain", "LLM"]}
+ *   messages={[
+ *     { from: 0, to: 1, label: "Raw PDF/DOCX" },
+ *     { from: 1, to: 1, label: "Parse structure", type: "self" },
+ *     { from: 1, to: 2, label: "Chunked docs", highlight: "INDEXED" },
+ *   ]}
+ * />
+ */
+
+interface Message {
+  from: number;
+  to: number;
+  label: string;
+  highlight?: string;
+  type?: 'normal' | 'self' | 'dashed';
+  loop?: { label: string; condition: string };
+}
+
+interface Props {
+  title?: string;
+  actors: string[];
+  messages: Message[];
+  class?: string;
+}
+
+const { title, actors, messages, class: className } = Astro.props;
+
+// Layout constants
+const ACTOR_WIDTH = 140;
+const ACTOR_HEIGHT = 50;
+const ACTOR_GAP = 100;
+const MESSAGE_HEIGHT = 60;
+const PADDING = 40;
+const TITLE_HEIGHT = title ? 60 : 0;
+
+// Calculate dimensions
+const width = PADDING * 2 + actors.length * ACTOR_WIDTH + (actors.length - 1) * ACTOR_GAP;
+const messagesHeight = messages.length * MESSAGE_HEIGHT;
+const height = PADDING * 2 + TITLE_HEIGHT + ACTOR_HEIGHT + messagesHeight + ACTOR_HEIGHT + 40;
+
+// Actor X positions (center of each actor)
+const actorX = (index: number) => PADDING + ACTOR_WIDTH / 2 + index * (ACTOR_WIDTH + ACTOR_GAP);
+
+// Generate unique ID for this diagram
+const diagramId = `seq-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<figure class:list={["sequence-diagram", className]}>
+  <svg 
+    viewBox={`0 0 ${width} ${height}`}
+    class="w-full h-auto"
+    role="img"
+    aria-label={title || "Sequence Diagram"}
+  >
+    <defs>
+      <!-- Stippled pattern for actor boxes -->
+      <pattern id={`${diagramId}-stipple`} width="4" height="4" patternUnits="userSpaceOnUse">
+        <circle cx="1" cy="1" r="0.5" class="stipple-dot" />
+      </pattern>
+      
+      <!-- Arrow marker -->
+      <marker 
+        id={`${diagramId}-arrow`}
+        markerWidth="10" 
+        markerHeight="10" 
+        refX="9" 
+        refY="3" 
+        orient="auto"
+      >
+        <path d="M0,0 L0,6 L9,3 z" class="arrow-head" />
+      </marker>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="100%" height="100%" class="diagram-bg" />
+    
+    <!-- Title -->
+    {title && (
+      <text 
+        x={PADDING} 
+        y={PADDING + 24}
+        class="diagram-title"
+      >
+        {title}
+      </text>
+    )}
+    
+    <!-- Actor boxes (top) -->
+    {actors.map((actor, i) => (
+      <g class="actor-group">
+        <rect
+          x={actorX(i) - ACTOR_WIDTH / 2}
+          y={PADDING + TITLE_HEIGHT}
+          width={ACTOR_WIDTH}
+          height={ACTOR_HEIGHT}
+          rx="25"
+          class="actor-box"
+        />
+        <rect
+          x={actorX(i) - ACTOR_WIDTH / 2}
+          y={PADDING + TITLE_HEIGHT}
+          width={ACTOR_WIDTH}
+          height={ACTOR_HEIGHT}
+          rx="25"
+          fill={`url(#${diagramId}-stipple)`}
+          class="actor-stipple"
+        />
+        <text
+          x={actorX(i)}
+          y={PADDING + TITLE_HEIGHT + ACTOR_HEIGHT / 2 + 5}
+          class="actor-label"
+        >
+          {actor.toUpperCase()}
+        </text>
+      </g>
+    ))}
+    
+    <!-- Lifelines -->
+    {actors.map((_, i) => (
+      <line
+        x1={actorX(i)}
+        y1={PADDING + TITLE_HEIGHT + ACTOR_HEIGHT}
+        x2={actorX(i)}
+        y2={height - PADDING - ACTOR_HEIGHT}
+        class="lifeline"
+      />
+    ))}
+    
+    <!-- Messages -->
+    {messages.map((msg, i) => {
+      const y = PADDING + TITLE_HEIGHT + ACTOR_HEIGHT + 30 + i * MESSAGE_HEIGHT;
+      const x1 = actorX(msg.from);
+      const x2 = actorX(msg.to);
+      const isRight = msg.to > msg.from;
+      const isSelf = msg.from === msg.to;
+      
+      if (isSelf) {
+        // Self-referencing message
+        const loopWidth = 40;
+        return (
+          <g class="message-group">
+            <path
+              d={`M ${x1} ${y} 
+                  L ${x1 + loopWidth} ${y} 
+                  L ${x1 + loopWidth} ${y + 25} 
+                  L ${x1} ${y + 25}`}
+              class="message-line"
+              marker-end={`url(#${diagramId}-arrow)`}
+            />
+            <text
+              x={x1 + loopWidth + 10}
+              y={y + 16}
+              class="message-label"
+            >
+              {msg.label}
+            </text>
+          </g>
+        );
+      }
+      
+      return (
+        <g class="message-group">
+          <line
+            x1={x1}
+            y1={y}
+            x2={x2 - (isRight ? 10 : -10)}
+            y2={y}
+            class:list={["message-line", { "message-dashed": msg.type === "dashed" }]}
+            marker-end={`url(#${diagramId}-arrow)`}
+          />
+          <text
+            x={Math.min(x1, x2) + 10}
+            y={y - 10}
+            class="message-label"
+          >
+            {msg.label}
+            {msg.highlight && (
+              <tspan class="message-highlight"> {msg.highlight}</tspan>
+            )}
+          </text>
+        </g>
+      );
+    })}
+    
+    <!-- Actor boxes (bottom) -->
+    {actors.map((actor, i) => (
+      <g class="actor-group">
+        <rect
+          x={actorX(i) - ACTOR_WIDTH / 2}
+          y={height - PADDING - ACTOR_HEIGHT}
+          width={ACTOR_WIDTH}
+          height={ACTOR_HEIGHT}
+          rx="25"
+          class="actor-box"
+        />
+        <rect
+          x={actorX(i) - ACTOR_WIDTH / 2}
+          y={height - PADDING - ACTOR_HEIGHT}
+          width={ACTOR_WIDTH}
+          height={ACTOR_HEIGHT}
+          rx="25"
+          fill={`url(#${diagramId}-stipple)`}
+          class="actor-stipple"
+        />
+        <text
+          x={actorX(i)}
+          y={height - PADDING - ACTOR_HEIGHT / 2 + 5}
+          class="actor-label"
+        >
+          {actor.toUpperCase()}
+        </text>
+      </g>
+    ))}
+  </svg>
+</figure>
+
+<style>
+  .sequence-diagram {
+    width: 100%;
+    margin: 2rem 0;
+  }
+  
+  /* Light mode */
+  .diagram-bg {
+    fill: var(--background);
+  }
+  
+  .diagram-title {
+    fill: var(--foreground);
+    font-size: 20px;
+    font-weight: 600;
+    font-family: inherit;
+  }
+  
+  .actor-box {
+    fill: transparent;
+    stroke: var(--accent);
+    stroke-width: 2;
+  }
+  
+  .stipple-dot {
+    fill: var(--accent);
+    opacity: 0.3;
+  }
+  
+  .actor-stipple {
+    opacity: 0.5;
+  }
+  
+  .actor-label {
+    fill: var(--foreground);
+    font-size: 12px;
+    font-weight: 700;
+    font-family: inherit;
+    text-anchor: middle;
+    letter-spacing: 0.05em;
+  }
+  
+  .lifeline {
+    stroke: var(--accent);
+    stroke-width: 1;
+    opacity: 0.4;
+  }
+  
+  .message-line {
+    stroke: var(--accent);
+    stroke-width: 2;
+    fill: none;
+  }
+  
+  .message-dashed {
+    stroke-dasharray: 5, 5;
+    opacity: 0.6;
+  }
+  
+  .arrow-head {
+    fill: var(--accent);
+  }
+  
+  .message-label {
+    fill: var(--foreground);
+    font-size: 14px;
+    font-family: inherit;
+  }
+  
+  .message-highlight {
+    fill: var(--accent);
+    font-weight: 600;
+  }
+</style>

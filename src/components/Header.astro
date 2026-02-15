@@ -3,7 +3,7 @@ import Hr from "./Hr.astro";
 import IconX from "@/assets/icons/IconX.svg";
 import IconMoon from "@/assets/icons/IconMoon.svg";
 import IconSearch from "@/assets/icons/IconSearch.svg";
-import IconArchive from "@/assets/icons/IconArchive.svg";
+import IconTool from "@/assets/icons/IconTool.svg";
 import IconSunHigh from "@/assets/icons/IconSunHigh.svg";
 import IconMenuDeep from "@/assets/icons/IconMenuDeep.svg";
 import LinkButton from "./LinkButton.astro";
@@ -108,16 +108,26 @@ const isActive = (path: string) => {
               </div>
             </div>
           </li>
+          <li class="col-span-2">
+            <a href="/posts" class:list={{ "active-nav": isActive("/posts") }}>
+              Posts
+            </a>
+          </li>
+          <li class="col-span-2">
+            <a href="/tags" class:list={{ "active-nav": isActive("/tags") }}>
+              Tags
+            </a>
+          </li>
           <li class="col-span-2 relative group">
             <button 
-              class="tools-dropdown-btn block px-4 py-3 text-center font-medium hover:text-accent sm:px-2 sm:py-1 cursor-pointer"
+              class="tools-dropdown-btn focus-outline flex justify-center p-3 sm:p-1 cursor-pointer hover:[&>svg]:stroke-accent"
               aria-expanded="false"
               aria-haspopup="true"
+              aria-label="Tools"
+              title="Tools"
             >
-              Tools
-              <svg class="inline-block w-3 h-3 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-              </svg>
+              <IconTool class="hidden sm:inline-block" />
+              <span class="sm:hidden font-medium">Tools</span>
             </button>
             <div class="tools-dropdown hidden absolute left-1/2 -translate-x-1/2 top-full pt-2 w-64 z-50">
               <div class="bg-background border border-border rounded-lg shadow-lg overflow-hidden">
@@ -136,36 +146,6 @@ const isActive = (path: string) => {
               </div>
             </div>
           </li>
-          <li class="col-span-2">
-            <a href="/posts" class:list={{ "active-nav": isActive("/posts") }}>
-              Posts
-            </a>
-          </li>
-          <li class="col-span-2">
-            <a href="/tags" class:list={{ "active-nav": isActive("/tags") }}>
-              Tags
-            </a>
-          </li>
-          {
-            SITE.showArchives && (
-              <li class="col-span-2">
-                <LinkButton
-                  href="/archives"
-                  class:list={[
-                    "focus-outline flex justify-center p-3 sm:p-1",
-                    {
-                      "active-nav [&>svg]:stroke-accent": isActive("/archives"),
-                    },
-                  ]}
-                  ariaLabel="archives"
-                  title="Archives"
-                >
-                  <IconArchive class="hidden sm:inline-block" />
-                  <span class="sm:sr-only">Archives</span>
-                </LinkButton>
-              </li>
-            )
-          }
           <li class="col-span-1 flex items-center justify-center">
             <LinkButton
               href="/search"

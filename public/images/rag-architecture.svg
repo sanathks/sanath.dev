@@ -1,0 +1,137 @@
+<svg id="canvas" class="w-full h-full" style="background: #1a1b26;" viewBox="10 100 850 670" width="850" height="670" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="100" width="850" height="670" fill="#1a1b26"></rect>
+      <defs>
+        <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+          <circle cx="10" cy="10" r="0.5" fill="#414868" opacity="0.5"></circle>
+        </pattern>
+        <pattern id="stripe" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+          <line x1="0" y1="0" x2="0" y2="8" stroke="#a9b1d6" stroke-width="2" opacity="0.15"></line>
+        </pattern>
+        <pattern id="grid-fill" width="10" height="10" patternUnits="userSpaceOnUse">
+          <circle cx="5" cy="5" r="0.5" fill="#a9b1d6" opacity="0.5"></circle>
+        </pattern>
+      </defs>
+      
+      
+      
+      <g id="viewport">
+        <g id="connections"><g class="connection-group " data-id="c2" data-conn="c2" style="cursor:pointer"><path class="conn-hit" d="M145,260 L170.5,260 Q182.5,260 182.5,272 L182.5,310.5 Q182.5,322.5 194.5,322.5 L212,322.5" fill="none" stroke="transparent" stroke-width="20" data-conn="c2" style="cursor:pointer;pointer-events:stroke"></path><circle class="conn-hit" cx="217" cy="322.5" r="15" fill="transparent" data-conn="c2" style="cursor:pointer;pointer-events:all"></circle><path class="connection" d="M145,260 L170.5,260 Q182.5,260 182.5,272 L182.5,310.5 Q182.5,322.5 194.5,322.5 L212,322.5" fill="none" stroke="#a9b1d6" stroke-width="1.5" stroke-dasharray="none" style="pointer-events:none"></path><path d="M217,322.5 L209,326.5 L209,318.5 Z" fill="#a9b1d6" style="pointer-events:none"></path></g><g class="connection-group " data-id="c3" data-conn="c3" style="cursor:pointer"><path class="conn-hit" d="M235,260 L235,270 Q235,280 245,280 L269,280 Q275,280 275,286 L275,292" fill="none" stroke="transparent" stroke-width="20" data-conn="c3" style="cursor:pointer;pointer-events:stroke"></path><circle class="conn-hit" cx="275" cy="297" r="15" fill="transparent" data-conn="c3" style="cursor:pointer;pointer-events:all"></circle><path class="connection" d="M235,260 L235,270 Q235,280 245,280 L269,280 Q275,280 275,286 L275,292" fill="none" stroke="#a9b1d6" stroke-width="1.5" stroke-dasharray="none" style="pointer-events:none"></path><path d="M275,297 L271,289 L279,289 Z" fill="#a9b1d6" style="pointer-events:none"></path></g><g class="connection-group " data-id="c4" data-conn="c4" style="cursor:pointer"><path class="conn-hit" d="M352.5,260 L352.5,270 Q352.5,280 342.5,280 L281,280 Q275,280 275,286 L275,292" fill="none" stroke="transparent" stroke-width="20" data-conn="c4" style="cursor:pointer;pointer-events:stroke"></path><circle class="conn-hit" cx="275" cy="297" r="15" fill="transparent" data-conn="c4" style="cursor:pointer;pointer-events:all"></circle><path class="connection" d="M352.5,260 L352.5,270 Q352.5,280 342.5,280 L281,280 Q275,280 275,286 L275,292" fill="none" stroke="#a9b1d6" stroke-width="1.5" stroke-dasharray="none" style="pointer-events:none"></path><path d="M275,297 L271,289 L279,289 Z" fill="#a9b1d6" style="pointer-events:none"></path></g><g class="connection-group " data-id="c5" data-conn="c5" style="cursor:pointer"><path class="conn-hit" d="M420,280 L387,280 Q375,280 375,292 L375,310.5 Q375,322.5 363,322.5 L338,322.5" fill="none" stroke="transparent" stroke-width="20" data-conn="c5" style="cursor:pointer;pointer-events:stroke"></path><circle class="conn-hit" cx="333" cy="322.5" r="15" fill="transparent" data-conn="c5" style="cursor:pointer;pointer-events:all"></circle><path class="connection" d="M420,280 L387,280 Q375,280 375,292 L375,310.5 Q375,322.5 363,322.5 L338,322.5" fill="none" stroke="#a9b1d6" stroke-width="1.5" stroke-dasharray="none" style="pointer-events:none"></path><path d="M333,322.5 L341,318.5 L341,326.5 Z" fill="#a9b1d6" style="pointer-events:none"></path></g><g class="connection-group " data-id="c6" data-conn="c6" style="cursor:pointer"><path class="conn-hit" d="M275,345 L275,380.5 Q275,392.5 263,392.5 L227,392.5 Q215,392.5 215,404.5 L215,432" fill="none" stroke="transparent" stroke-width="20" data-conn="c6" style="cursor:pointer;pointer-events:stroke"></path><circle class="conn-hit" cx="215" cy="437" r="15" fill="transparent" data-conn="c6" style="cursor:pointer;pointer-events:all"></circle><path class="connection" d="M275,345 L275,380.5 Q275,392.5 263,392.5 L227,392.5 Q215,392.5 215,404.5 L215,432" fill="none" stroke="#a9b1d6" stroke-width="1.5" stroke-dasharray="none" style="pointer-events:none"></path><path d="M215,437 L211,429 L219,429 Z" fill="#a9b1d6" style="pointer-events:none"></path></g><g class="connection-group " data-id="c7" data-conn="c7" style="cursor:pointer"><path class="conn-hit" d="M215,480 L215,498 Q215,510 203,510 L151,510 Q140,510 140,521 L140,532" fill="none" stroke="transparent" stroke-width="20" data-conn="c7" style="cursor:pointer;pointer-events:stroke"></path><circle class="conn-hit" cx="140" cy="537" r="15" fill="transparent" data-conn="c7" style="cursor:pointer;pointer-events:all"></circle><path class="connection" d="M215,480 L215,498 Q215,510 203,510 L151,510 Q140,510 140,521 L140,532" fill="none" stroke="#a9b1d6" stroke-width="1.5" stroke-dasharray="none" style="pointer-events:none"></path><path d="M140,537 L136,529 L144,529 Z" fill="#a9b1d6" style="pointer-events:none"></path></g><g class="connection-group " data-id="c7b" data-conn="c7b" style="cursor:pointer"><path class="conn-hit" d="M270,460 L332,460" fill="none" stroke="transparent" stroke-width="20" data-conn="c7b" style="cursor:pointer;pointer-events:stroke"></path><circle class="conn-hit" cx="337" cy="460" r="15" fill="transparent" data-conn="c7b" style="cursor:pointer;pointer-events:all"></circle><path class="connection" d="M270,460 L332,460" fill="none" stroke="#a9b1d6" stroke-width="1.5" stroke-dasharray="none" style="pointer-events:none"></path><path d="M337,460 L329,464 L329,456 Z" fill="#a9b1d6" style="pointer-events:none"></path></g><g class="connection-group " data-id="c8" data-conn="c8" style="cursor:pointer"><path class="conn-hit" d="M200,560 L210,560 Q220,560 220,570 L220,574 Q220,580 226,580 L232,580" fill="none" stroke="transparent" stroke-width="20" data-conn="c8" style="cursor:pointer;pointer-events:stroke"></path><circle class="conn-hit" cx="237" cy="580" r="15" fill="transparent" data-conn="c8" style="cursor:pointer;pointer-events:all"></circle><path class="connection" d="M200,560 L210,560 Q220,560 220,570 L220,574 Q220,580 226,580 L232,580" fill="none" stroke="#a9b1d6" stroke-width="1.5" stroke-dasharray="none" style="pointer-events:none"></path><path d="M237,580 L229,584 L229,576 Z" fill="#a9b1d6" style="pointer-events:none"></path></g><g class="connection-group " data-id="c9" data-conn="c9" style="cursor:pointer"><path class="conn-hit" d="M340,580 L478,580 Q490,580 490,568 L490,472 Q490,460 502,460 L632,460" fill="none" stroke="transparent" stroke-width="20" data-conn="c9" style="cursor:pointer;pointer-events:stroke"></path><circle class="conn-hit" cx="637" cy="460" r="15" fill="transparent" data-conn="c9" style="cursor:pointer;pointer-events:all"></circle><path class="connection" d="M340,580 L478,580 Q490,580 490,568 L490,472 Q490,460 502,460 L632,460" fill="none" stroke="#a9b1d6" stroke-width="1.5" stroke-dasharray="none" style="pointer-events:none"></path><path d="M637,460 L629,464 L629,456 Z" fill="#a9b1d6" style="pointer-events:none"></path></g><g class="connection-group " data-id="c10" data-conn="c10" style="cursor:pointer"><path class="conn-hit" d="M430,460 L632,460" fill="none" stroke="transparent" stroke-width="20" data-conn="c10" style="cursor:pointer;pointer-events:stroke"></path><circle class="conn-hit" cx="637" cy="460" r="15" fill="transparent" data-conn="c10" style="cursor:pointer;pointer-events:all"></circle><path class="connection" d="M430,460 L632,460" fill="none" stroke="#a9b1d6" stroke-width="1.5" stroke-dasharray="none" style="pointer-events:none"></path><path d="M637,460 L629,464 L629,456 Z" fill="#a9b1d6" style="pointer-events:none"></path></g><g class="connection-group " data-id="c11" data-conn="c11" style="cursor:pointer"><path class="conn-hit" d="M700,270 L700,432" fill="none" stroke="transparent" stroke-width="20" data-conn="c11" style="cursor:pointer;pointer-events:stroke"></path><circle class="conn-hit" cx="700" cy="437" r="15" fill="transparent" data-conn="c11" style="cursor:pointer;pointer-events:all"></circle><path class="connection" d="M700,270 L700,432" fill="none" stroke="#a9b1d6" stroke-width="1.5" stroke-dasharray="5,3" style="pointer-events:none"></path><path d="M700,437 L696,429 L704,429 Z" fill="#a9b1d6" style="pointer-events:none"></path></g><g class="connection-group " data-id="c12" data-conn="c12" style="cursor:pointer"><path class="conn-hit" d="M700,480 L700,490 Q700,500 690,500 L631,500 Q625,500 625,506 L625,512" fill="none" stroke="transparent" stroke-width="20" data-conn="c12" style="cursor:pointer;pointer-events:stroke"></path><circle class="conn-hit" cx="625" cy="517" r="15" fill="transparent" data-conn="c12" style="cursor:pointer;pointer-events:all"></circle><path class="connection" d="M700,480 L700,490 Q700,500 690,500 L631,500 Q625,500 625,506 L625,512" fill="none" stroke="#a9b1d6" stroke-width="1.5" stroke-dasharray="none" style="pointer-events:none"></path><path d="M625,517 L621,509 L629,509 Z" fill="#a9b1d6" style="pointer-events:none"></path></g><g class="connection-group " data-id="c13" data-conn="c13" style="cursor:pointer"><path class="conn-hit" d="M670,540 L712,540" fill="none" stroke="transparent" stroke-width="20" data-conn="c13" style="cursor:pointer;pointer-events:stroke"></path><circle class="conn-hit" cx="717" cy="540" r="15" fill="transparent" data-conn="c13" style="cursor:pointer;pointer-events:all"></circle><path class="connection" d="M670,540 L712,540" fill="none" stroke="#a9b1d6" stroke-width="1.5" stroke-dasharray="none" style="pointer-events:none"></path><path d="M717,540 L709,544 L709,536 Z" fill="#a9b1d6" style="pointer-events:none"></path></g><g class="connection-group " data-id="c14" data-conn="c14" style="cursor:pointer"><path class="conn-hit" d="M760,560 L760,672" fill="none" stroke="transparent" stroke-width="20" data-conn="c14" style="cursor:pointer;pointer-events:stroke"></path><circle class="conn-hit" cx="760" cy="677" r="15" fill="transparent" data-conn="c14" style="cursor:pointer;pointer-events:all"></circle><path class="connection" d="M760,560 L760,672" fill="none" stroke="#a9b1d6" stroke-width="1.5" stroke-dasharray="none" style="pointer-events:none"></path><path d="M760,677 L756,669 L764,669 Z" fill="#a9b1d6" style="pointer-events:none"></path></g></g>
+        <g id="nodes"><g class="node " data-id="g1">
+          
+          <rect x="50" y="170" width="460" height="200" rx="8" fill="transparent" stroke="none" class="container-fill"></rect>
+            <rect x="50" y="170" width="460" height="200" rx="8" fill="none" stroke="#a9b1d6" stroke-width="1.5" class="node-border"></rect>
+            <text x="62" y="192" fill="#a9b1d6" font-size="13" font-weight="600" font-family="system-ui, sans-serif" style="pointer-events:none">Layer 1: Document Parsing</text>
+          
+          
+        </g><g class="node " data-id="g2">
+          
+          <rect x="50" y="400" width="460" height="220" rx="8" fill="url(#stripe)" stroke="none" class="container-fill"></rect>
+            <rect x="50" y="400" width="460" height="220" rx="8" fill="none" stroke="#a9b1d6" stroke-width="1.5" class="node-border"></rect>
+            <text x="62" y="422" fill="#a9b1d6" font-size="13" font-weight="600" font-family="system-ui, sans-serif" style="pointer-events:none">Layer 2: Hybrid Search</text>
+          
+          
+        </g><g class="node " data-id="g3">
+          
+          <rect x="540" y="400" width="280" height="220" rx="8" fill="url(#grid-fill)" stroke="none" class="container-fill"></rect>
+            <rect x="540" y="400" width="280" height="220" rx="8" fill="none" stroke="#a9b1d6" stroke-width="1.5" class="node-border"></rect>
+            <text x="552" y="422" fill="#a9b1d6" font-size="13" font-weight="600" font-family="system-ui, sans-serif" style="pointer-events:none">Layer 3: Orchestration</text>
+          
+          
+        </g><g class="node " data-id="indexLabel">
+          
+          <rect x="60" y="140" width="100" height="24" fill="transparent" stroke="transparent" stroke-width="1" stroke-dasharray="0" class="node-border"></rect>
+            <text x="110" y="157" fill="#a9b1d6" font-size="14" font-family="system-ui, sans-serif" text-anchor="middle" style="pointer-events:none">Indexing Flow</text>
+          
+          
+        </g><g class="node " data-id="retrievalLabel">
+          
+          <rect x="540" y="360" width="100" height="24" fill="transparent" stroke="transparent" stroke-width="1" stroke-dasharray="0" class="node-border"></rect>
+            <text x="590" y="377" fill="#a9b1d6" font-size="14" font-family="system-ui, sans-serif" text-anchor="middle" style="pointer-events:none">Retrieval Flow</text>
+          
+          
+        </g><g class="node " data-id="query">
+          
+          <rect x="640" y="220" width="120" height="50" rx="25" fill="#24283b" stroke="#7dcfff" stroke-width="1.5" class="node-border"></rect>
+            <text x="700" y="249" fill="#a9b1d6" font-size="12" font-family="system-ui, sans-serif" text-anchor="middle">User Query</text>
+          
+          
+        </g><g class="node " data-id="n1">
+          
+          <rect x="80" y="240" width="65" height="40" rx="6" fill="#24283b" stroke="#c0caf5" stroke-width="1.5" class="node-border"></rect>
+            <text x="112.5" y="264" fill="#a9b1d6" font-size="12" font-family="system-ui, sans-serif" text-anchor="middle">PDF</text>
+          
+          
+        </g><g class="node " data-id="n2">
+          
+          <rect x="200" y="220" width="70" height="40" rx="6" fill="#24283b" stroke="#c0caf5" stroke-width="1.5" class="node-border"></rect>
+            <text x="235" y="244" fill="#a9b1d6" font-size="12" font-family="system-ui, sans-serif" text-anchor="middle">DOCX</text>
+          
+          
+        </g><g class="node " data-id="n3">
+          
+          <rect x="320" y="220" width="65" height="40" rx="6" fill="#24283b" stroke="#c0caf5" stroke-width="1.5" class="node-border"></rect>
+            <text x="352.5" y="244" fill="#a9b1d6" font-size="12" font-family="system-ui, sans-serif" text-anchor="middle">HTML</text>
+          
+          
+        </g><g class="node " data-id="n4">
+          
+          <rect x="420" y="260" width="65" height="40" rx="6" fill="#24283b" stroke="#c0caf5" stroke-width="1.5" class="node-border"></rect>
+            <text x="452.5" y="284" fill="#a9b1d6" font-size="12" font-family="system-ui, sans-serif" text-anchor="middle">Images</text>
+          
+          
+        </g><g class="node " data-id="n5">
+          
+          <rect x="220" y="300" width="110" height="45" rx="22.5" fill="transparent" stroke="#9ece6a" stroke-width="1.5" class="node-border"></rect>
+            <text x="275" y="326.5" fill="#9ece6a" font-size="12" font-family="system-ui, sans-serif" text-anchor="middle">Docling</text>
+          
+          
+        </g><g class="node " data-id="n6">
+          
+          <rect x="160" y="440" width="110" height="40" rx="6" fill="#24283b" stroke="#c0caf5" stroke-width="1.5" class="node-border"></rect>
+            <text x="215" y="464" fill="#a9b1d6" font-size="12" font-family="system-ui, sans-serif" text-anchor="middle">Chunks</text>
+          
+          
+        </g><g class="node " data-id="embed">
+          
+          <rect x="80" y="540" width="120" height="40" rx="20" fill="#24283b" stroke="#f7768e" stroke-width="1.5" class="node-border"></rect>
+            <text x="140" y="564" fill="#a9b1d6" font-size="12" font-family="system-ui, sans-serif" text-anchor="middle">Embed Model</text>
+          
+          
+        </g><g class="node " data-id="n7">
+          
+          <rect x="240" y="560" width="100" height="40" rx="20" fill="#24283b" stroke="#7aa2f7" stroke-width="1.5" class="node-border"></rect>
+            <text x="290" y="584" fill="#a9b1d6" font-size="12" font-family="system-ui, sans-serif" text-anchor="middle">Vectors</text>
+          
+          
+        </g><g class="node " data-id="n8">
+          
+          <rect x="340" y="440" width="90" height="40" rx="20" fill="#24283b" stroke="#7aa2f7" stroke-width="1.5" class="node-border"></rect>
+            <text x="385" y="464" fill="#a9b1d6" font-size="12" font-family="system-ui, sans-serif" text-anchor="middle">BM25</text>
+          
+          
+        </g><g class="node " data-id="n9">
+          
+          <rect x="640" y="440" width="120" height="40" rx="20" fill="#24283b" stroke="#f7768e" stroke-width="1.5" class="node-border"></rect>
+            <text x="700" y="464" fill="#a9b1d6" font-size="12" font-family="system-ui, sans-serif" text-anchor="middle">OpenSearch</text>
+          
+          
+        </g><g class="node " data-id="n10">
+          
+          <rect x="580" y="520" width="90" height="40" rx="20" fill="#24283b" stroke="#bb9af7" stroke-width="1.5" class="node-border"></rect>
+            <text x="625" y="544" fill="#a9b1d6" font-size="12" font-family="system-ui, sans-serif" text-anchor="middle">Re-rank</text>
+          
+          
+        </g><g class="node " data-id="n11">
+          
+          <rect x="720" y="520" width="80" height="40" rx="20" fill="#24283b" stroke="#bb9af7" stroke-width="1.5" class="node-border"></rect>
+            <text x="760" y="544" fill="#a9b1d6" font-size="12" font-family="system-ui, sans-serif" text-anchor="middle">LLM</text>
+          
+          
+        </g><g class="node " data-id="output">
+          
+          <rect x="700" y="680" width="120" height="50" rx="25" fill="#24283b" stroke="#7dcfff" stroke-width="1.5" class="node-border"></rect>
+            <text x="760" y="709" fill="#a9b1d6" font-size="12" font-family="system-ui, sans-serif" text-anchor="middle">Response</text>
+          
+          
+        </g></g>
+      </g>
+    </svg>

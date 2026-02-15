@@ -1,7 +1,7 @@
 ---
 author: Sanath Samarasinghe
 pubDatetime: 2026-02-13T00:00:00Z
-modDatetime:
+modDatetime: 2026-02-15T23:00:00Z
 title: The Three Layers Every Production RAG System Needs
 featured: true
 draft: false
@@ -27,6 +27,8 @@ Every production RAG system needs:
 1. **Document parsing** that doesn't destroy structure
 2. **Hybrid search** combining keywords and semantics
 3. **Orchestration** that handles the messy reality
+
+![Production RAG Architecture](/images/rag-architecture.svg)
 
 Most demos skip layer one entirely and oversimplify the rest. That's why they fail on real documents.
 

@@ -14,6 +14,8 @@ description: "Every sophisticated agent harness still boils down to this tiny lo
 
 Okay so every fancy agent framework still runs the same tiny loop. The model decides what to do, you execute a tool if it asks, you feed the result back, and you repeat until it responds normally.
 
+![Agent loop diagram](/images/agent-loop.gif)
+
 ```ts
 import OpenAI from "openai";
 
